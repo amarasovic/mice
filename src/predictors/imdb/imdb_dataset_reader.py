@@ -22,7 +22,11 @@ import tarfile
 import numpy as np
 import math
 
-from src.predictors.predictor_utils import clean_text 
+def clean_text(text, special_chars=["\n", "\t"]):
+    for char in special_chars:
+        text = text.replace(char, " ")
+    return text
+    
 logger = logging.getLogger(__name__)
 
 TRAIN_VAL_SPLIT_RATIO = 0.9
